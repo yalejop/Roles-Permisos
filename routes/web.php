@@ -1,5 +1,8 @@
 <?php
 
+use App\Permission\Model\Role;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +24,35 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::get('/test', function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+    /* return Role::create([
+        'name' => 'Admin',
+        'slug' => 'admin',
+        'description' => 'Adminitrator',
+        'full-access' => 'yes'
+    ]); */
+
+    /* return Role::create([
+        'name' => 'Guest',
+        'slug' => 'guest',
+        'description' => 'Guest',
+        'full-access' => 'no'
+        ]); */
+
+    /*  return Role::create([
+        'name' => 'Test',
+        'slug' => 'test',
+        'description' => 'Test',
+        'full-access' => 'no'
+        ]); */
+
+    $user = User::find(1);
+
+    //$user->roles()->attach([1,3]);
+    /* $user->roles()->detach([1,3]); */
+    $user->roles()->sync([5,7]);
+
+    return $user->roles;
+
+});
