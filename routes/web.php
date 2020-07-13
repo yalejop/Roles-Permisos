@@ -1,5 +1,6 @@
 <?php
 
+use App\Permission\Model\Permission;
 use App\Permission\Model\Role;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -47,12 +48,24 @@ Route::get('/test', function () {
         'full-access' => 'no'
         ]); */
 
-    $user = User::find(1);
+    //$user = User::find(1);
 
     //$user->roles()->attach([1,3]);
     /* $user->roles()->detach([1,3]); */
-    $user->roles()->sync([5,7]);
+    //$user->roles()->sync([5,7]);
 
-    return $user->roles;
+    //return $user->roles;
+
+   /*  return Permission::create([
+        'name' => 'List Product',
+        'slug' => 'product.index',
+        'description' => 'A User can list a Products',
+    ]); */ 
+
+    $role = Role::find(6);
+
+    $role->permissions()->sync([1,2]);
+
+    return $role->permissions; 
 
 });
