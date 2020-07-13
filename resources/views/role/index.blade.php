@@ -8,13 +8,19 @@
                 <div class="card-header"><h2>List of Roles</h2></div>
 
                 <div class="card-body">
+
+                    <a href="{{ route('role.create')}}"
+                    class="btn btn-primary float-right"
+                    >Create</a>
+                    <br><br>
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <table class="table table-bordered">
+                    <table class="table table-hover">
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
