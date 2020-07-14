@@ -14,11 +14,7 @@
                     >Create</a>
                     <br><br>
 
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    @include('custom.message')
 
                     <table class="table table-hover">
                         <thead>
@@ -32,8 +28,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
                               @foreach ($roles as $role)
+                              <tr>
                                 <th scope="row">{{ $role->id }}</th>
                                 <td>{{ $role->name }}</td>
                                 <td>{{ $role->slug }}</td>
@@ -42,8 +38,8 @@
                                 <td><a href="{{route('role.show', $role->id)}}" class="btn btn-info">Show</a></td>
                                 <td><a href="{{route('role.edit', $role->id)}}" class="btn btn-success">Edit</a></td>
                                 <td><a href="{{route('role.edit', $role->id)}}" class="btn btn-danger">Delete</a></td>
+                              </tr>
                               @endforeach
-                          </tr>
                         </tbody>
                       </table>
                       {{ $roles->links() }}

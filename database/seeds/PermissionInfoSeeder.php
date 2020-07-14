@@ -136,7 +136,7 @@ class PermissionInfoSeeder extends Seeder
         $permission_all[] = $permission->id; */
 
          //table role_permission
-         $roleAdmin->permissions()->sync($permission_all);
+         //$roleAdmin->permissions()->sync($permission_all);
             
     }
 }
