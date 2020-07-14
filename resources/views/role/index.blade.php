@@ -37,7 +37,7 @@
                                 <td>{{ $role['full-access'] }}</td>
                                 <td><a href="{{route('role.show', $role->id)}}" class="btn btn-info">Show</a></td>
                                 <td><a href="{{route('role.edit', $role->id)}}" class="btn btn-success">Edit</a></td>
-                                <td><a href="{{route('role.edit', $role->id)}}" class="btn btn-danger">Delete</a></td>
+                                <td><a href="{{route('role.destroy', $role->id)}}" class="btn btn-danger">Delete</a></td>
                               </tr>
                               @endforeach
                         </tbody>
